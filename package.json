@@ -1,11 +1,13 @@
 {
-  "name": "d3examples",
+  "name": "NZJobsData",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Jobs Data Visualization",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "lite-server"
   },
   "author": "",
-  "license": "BSD"
+  "license": "BSD",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
 }

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Guide</title>
+<style>
+
+.chart rect.bar {
+  fill: steelblue;
+}
+
+.chart rect.medianBar {
+  fill: #2E4172;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.chart .axis text {
+    fill: black;
+}
+
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+</style>
+</head>
+<body>
+<svg class="chart">
+</svg>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script>
+    var margin = {top: 60, right: 50, bottom: 125, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
+
+    var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+    var y = d3.scale.linear().range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+                        .scale(x)
+                        .orient('bottom');
+    var yAxis = d3.svg.axis()
+                        .scale(y)
+                        .orient('left');
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+        return "Max: " + d.Max + "<br/>" + "Median: " + d.Median + "<br/>" + "Min: " + d.Min + "<br/>";
+      });
+
+    var chart = d3.select('.chart')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+    chart.call(tip);
+
+    chart.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("fill", "black")
+        .style("font-size", "16px")
+        .style("text-decoration", "none")
+        .text("NZ Salary Guide 2017 Q1");
+
+    d3.tsv('salary_guide_data.tsv', type, function(error, data) {
+        x.domain(data.map(function(d) { return d.Category; }));
+        y.domain([0, d3.max(data, function(d) { return d.Max; })]);
+
+
+    chart.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "start")    
+        .attr("y", 0)
+        .attr("x", 7)
+        .attr("transform" , "rotate(45)");
+
+    chart.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+        .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Salary");
+
+    chart.selectAll(".bar")
+        .data(data)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d) { return x(d.Category); })
+        .attr("y", function(d) { return y(d.Max); })
+        .attr("height", function(d) { return (height - y(d.Max)) - (height - y(d.Min)); })
+        .attr("width", x.rangeBand())
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
+    
+    chart.selectAll(".median")
+        .data(data)
+        .enter().append("rect")
+        .attr("class", "medianBar")
+        .attr("x", function(d) { return x(d.Category); })
+        .attr("y", function(d) { return y(d.Median); })
+        .attr("height", function(d) { return (5); })
+        .attr("width", x.rangeBand());
+    });
+
+    function type(d) {
+        d.Median = +d.Median;
+        d.Min = +d.Min;
+        d.Max = +d.Max;
+        return d;
+    }
+</script>
+</body>
+</html>
