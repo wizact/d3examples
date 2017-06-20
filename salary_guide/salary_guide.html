@@ -142,7 +142,9 @@
         .attr("class", "bar")
         .attr("x", function(d) { return x(d.Category); })
         .attr("y", function(d) { return y(d.Max); })
-        .attr("height", function(d) { return (height - y(d.Max)) - (height - y(d.Min)); })
+        .attr("height", function(d) { 
+          return (height - y(d.Max)) - (height - y(d.Min)); 
+        })
         .attr("width", x.rangeBand())
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
@@ -154,6 +156,11 @@
         .attr("x", function(d) { return x(d.Category); })
         .attr("y", function(d) { return y(d.Median); })
         .attr("height", function(d) { return (5); })
+        .transition()
+      .duration(200)
+      .delay(function (d, i) {
+        return i * 50;
+      })
         .attr("width", x.rangeBand());
     });
 
