@@ -136,22 +136,21 @@
     .style("text-anchor", "end")
     .text("Salary");
 
-    chart.selectAll(".bar")
+    var g = chart.selectAll(".bar")
         .data(data)
-        .enter().append("rect")
+        .enter()
+        .append("g");
+
+    g.append("rect")
         .attr("class", "bar")
         .attr("x", function(d) { return x(d.Category); })
         .attr("y", function(d) { return y(d.Max); })
         .attr("height", function(d) { 
           return (height - y(d.Max)) - (height - y(d.Min)); 
         })
-        .attr("width", x.rangeBand())
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
-    
-    chart.selectAll(".median")
-        .data(data)
-        .enter().append("rect")
+        .attr("width", x.rangeBand());
+
+    g.append("rect")
         .attr("class", "medianBar")
         .attr("x", function(d) { return x(d.Category); })
         .attr("y", function(d) { return y(d.Median); })
@@ -162,6 +161,9 @@
         return i * 50;
       })
         .attr("width", x.rangeBand());
+
+    g.on('mouseover', tip.show);
+    g.on('mouseout', tip.hide);
     });
 
     function type(d) {
