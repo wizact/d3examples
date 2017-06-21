@@ -1,27 +1,35 @@
-Category	Median	Min	Max
-Accounting	65	40	125
-Agriculture, fishing & forestry	50	35	85
-Architecture	75	45	115
-Automotive	55	35	85
-Banking, finance & insurance	65	40	115
-Construction & roading	60	37	135
-Customer service	42	35	65
-Education	55	35	80
-Engineering	70	40	125
-Executive & general management	95	42	225
-Government & council	65	42	125
-Healthcare	55	35	95
-Hospitality & tourism	40	32	65
-HR & recruitment	65	42	129
-IT	95	45	207
-Legal	65	40	133
-Manufacturing & operations	45	35	85
-Marketing, media & communications	65	40	115
-Office & administration	47	35	65
-Other	45	32	95
-Property	75	40	135
-Retail	40	32	65
-Sales	55	37	105
-Science & technology	55	35	115
-Trades & services	52	35	85
-Transport & logistics	47	35	75
+CategoryId	Parent	Category	Median	Min	Max	Leaf
+5001	5000	Accounting	65	40	125	false
+5015	5000	Agriculture, fishing & forestry	50	35	85	false
+5309	5000	Architecture	75	45	115	false
+4959	5000	Automotive	55	35	85	false
+5021	5000	Banking, finance & insurance	65	40	115	false
+5033	5000	Construction & roading	60	37	135	false
+5045	5000	Customer service	42	35	65	false
+5050	5000	Education	55	35	80	false
+5056	5000	Engineering	70	40	125	false
+9831	5000	Executive & general management	95	42	225	true
+5077	5000	Government & council	65	42	125	false
+5082	5000	Healthcare	55	35	95	false
+5079	5000	Hospitality & tourism	40	32	65	false
+5106	5000	HR & recruitment	65	42	129	false
+5112	5000	IT	95	45	207	false
+5126	5000	Legal	65	40	133	false
+5132	5000	Manufacturing & operations	45	35	85	false
+5143	5000	Marketing, media & communications	65	40	115	false
+5155	5000	Office & administration	47	35	65	false
+5199	5000	Other	45	32	95	true
+810	5000	Property	75	40	135	false
+5171	5000	Retail	40	32	65	false
+5163	5000	Sales	55	37	105	false
+5179	5000	Science & technology	55	35	115	true
+5180	5000	Trades & services	52	35	85	false
+5068	5000	Transport & logistics	47	35	75	false
+5002	5001	Accountants	75	40	120	false
+5007	5001	Accounts administrators	50	37	65	true
+5004	5001	Accounts payable	50	40	65	true
+5005	5001	Accounts receivable	55	42	65	true
+6889	5001	Analysts	85	55	132	true
+5009	5001	Finance managers & controllers	100	55	155	true
+5011	5001	Management	95	55	155	true
+5012	5001	Payroll	55	45	80	true
