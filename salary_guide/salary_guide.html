@@ -134,7 +134,7 @@
     .attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Salary");
+    .text("Salary ($NZD ,000)");
 
     var g = chart.selectAll(".bar")
         .data(data)
@@ -148,6 +148,11 @@
         .attr("height", function(d) { 
           return (height - y(d.Max)) - (height - y(d.Min)); 
         })
+        .transition()
+        .duration(200)
+        .delay(function (d, i) {
+          return i * 50;
+        })
         .attr("width", x.rangeBand());
 
     g.append("rect")
@@ -156,10 +161,10 @@
         .attr("y", function(d) { return y(d.Median); })
         .attr("height", function(d) { return (5); })
         .transition()
-      .duration(200)
-      .delay(function (d, i) {
-        return i * 50;
-      })
+        .duration(200)
+        .delay(function (d, i) {
+          return i * 50;
+        })
         .attr("width", x.rangeBand());
 
     g.on('mouseover', tip.show);
