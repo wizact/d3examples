@@ -69,6 +69,8 @@
 </style>
 </head>
 <body>
+<button onclick="goBack()">Back</button>
+<input type="text" id="parent" value="5000"/>
 <br>
 
 <svg class="chart">
@@ -76,6 +78,11 @@
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
+    function goBack() {
+      var parent = document.getElementById("parent").value;
+      draw(+parent);
+    }
+
     function draw(parent) {
         d3.tsv('salary_guide_data.tsv', type, function(error, data) {
           data = data.filter(function(d) { return d.Parent === parent; });

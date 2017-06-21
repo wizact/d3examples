@@ -1,35 +1,201 @@
 CategoryId	Parent	Category	Median	Min	Max	Leaf
-5001	5000	Accounting	65	40	125	false
-5015	5000	Agriculture, fishing & forestry	50	35	85	false
-5309	5000	Architecture	75	45	115	false
-4959	5000	Automotive	55	35	85	false
-5021	5000	Banking, finance & insurance	65	40	115	false
-5033	5000	Construction & roading	60	37	135	false
-5045	5000	Customer service	42	35	65	false
-5050	5000	Education	55	35	80	false
-5056	5000	Engineering	70	40	125	false
-9831	5000	Executive & general management	95	42	225	true
-5077	5000	Government & council	65	42	125	false
-5082	5000	Healthcare	55	35	95	false
-5079	5000	Hospitality & tourism	40	32	65	false
-5106	5000	HR & recruitment	65	42	129	false
-5112	5000	IT	95	45	207	false
-5126	5000	Legal	65	40	133	false
-5132	5000	Manufacturing & operations	45	35	85	false
-5143	5000	Marketing, media & communications	65	40	115	false
-5155	5000	Office & administration	47	35	65	false
-5199	5000	Other	45	32	95	true
-810	5000	Property	75	40	135	false
-5171	5000	Retail	40	32	65	false
-5163	5000	Sales	55	37	105	false
-5179	5000	Science & technology	55	35	115	true
-5180	5000	Trades & services	52	35	85	false
-5068	5000	Transport & logistics	47	35	75	false
-5002	5001	Accountants	75	40	120	false
-5007	5001	Accounts administrators	50	37	65	true
-5004	5001	Accounts payable	50	40	65	true
-5005	5001	Accounts receivable	55	42	65	true
-6889	5001	Analysts	85	55	132	true
-5009	5001	Finance managers & controllers	100	55	155	true
-5011	5001	Management	95	55	155	true
-5012	5001	Payroll	55	45	80	true
+840	810	Consultancy & valuation	75000	37500	107000	true
+883	810	Facilities & commercial property management	85000	47500	143000	true
+897	810	Residential sales & management	65000	40000	115500	true
+5181	4959	Other	47500	32500	75000	true
+5132	5000	Manufacturing & operations	45000	35000	85000	false
+5143	5000	Marketing, media & communications	65000	40000	115000	false
+5126	5000	Legal	65000	40000	133000	false
+5155	5000	Office & administration	47500	35000	65000	false
+5171	5000	Retail	40000	32500	65000	false
+5163	5000	Sales	55000	37500	105000	false
+5001	5000	Accounting	65000	40000	125000	false
+5015	5000	Agriculture, fishing & forestry	50000	35000	85000	false
+5021	5000	Banking, finance & insurance	65000	40000	115000	false
+5033	5000	Construction & roading	60000	37500	135000	false
+5056	5000	Engineering	70000	40000	125000	false
+5050	5000	Education	55000	35000	80000	false
+5045	5000	Customer service	42500	35000	65000	false
+5077	5000	Government & council	65000	42500	125000	false
+5082	5000	Healthcare	55000	35000	95000	false
+5097	5000	Hospitality & tourism	40000	32500	65000	false
+5112	5000	IT	95000	45000	207500	false
+5106	5000	HR & recruitment	65000	42500	129000	false
+5179	5000	Science & technology	55000	35000	115000	true
+5180	5000	Trades & services	52500	35000	85000	false
+5068	5000	Transport & logistics	47500	35000	75000	false
+810	5000	Property	75000	40000	135000	false
+9831	5000	Executive & general management	95000	42500	225000	true
+5199	5000	Other	45000	32500	95000	true
+4959	5000	Automotive	55000	35000	85000	false
+5309	5000	Architecture	75000	45000	115500	false
+5002	5001	Accountants	75000	40000	120000	false
+6889	5001	Analysts	85000	55000	132250	true
+5007	5001	Accounts administrators	50000	37500	65000	true
+5004	5001	Accounts payable	50000	40000	65000	true
+5005	5001	Accounts receivable	55000	42500	65000	true
+5009	5001	Finance managers & controllers	100000	55000	155000	true
+5011	5001	Management	95000	55000	155000	true
+5012	5001	Payroll	55000	45000	80000	true
+6882	5002	Assistant accountants	55000	37500	75000	true
+6883	5002	Audit	85000	44125	140000	true
+6884	5002	Financial accounting & reporting	85000	50000	130000	true
+6885	5002	General / CA	60000	40000	115000	true
+6886	5002	Management accountants	92500	65000	130000	true
+621	5002	Business advisory services	75000	47500	105000	true
+5016	5015	Farming	45000	30000	80000	true
+5017	5015	Fishing	50000	30000	100000	true
+5018	5015	Forestry	47500	32500	65000	true
+5019	5015	Horticulture	40000	25000	75000	true
+5022	5021	Analysts	75000	45000	105000	true
+5024	5021	Client services	50000	37500	85000	true
+5026	5021	Credit & lending	55000	39125	105000	true
+5029	5021	Insurance	55000	41875	105000	true
+5030	5021	Management	95000	46000	171000	true
+5023	5021	Tellers & branch staff	65000	40000	105000	true
+5036	5033	Estimation	85000	45750	135000	true
+5039	5033	Labouring	45000	35000	65000	true
+6891	5033	Machine operators	55000	40000	70000	true
+5040	5033	Project & contracts management	105000	55000	165000	true
+5041	5033	Site management	95000	50000	145000	true
+5042	5033	Supervisors & forepersons	75000	50000	115000	true
+5043	5033	Surveying	95000	46125	155000	true
+728	5033	Quantity surveying	95000	55000	135000	true
+4957	5033	Health & safety	75000	43500	115000	true
+5311	5033	Traffic management	40000	32500	70000	true
+733	5045	Call centre	40000	32500	55000	true
+5046	5045	Customer-facing	40000	30000	55000	true
+5047	5045	Management	55000	35000	95000	true
+5051	5050	Early childhood	47000	25000	65000	true
+5052	5050	Primary	47000	22500	65000	true
+5053	5050	Secondary	50000	25000	85000	true
+5054	5050	Tertiary	55000	32500	85000	true
+6894	5050	Tutoring & training	47500	40000	109000	true
+748	5050	Au pairs & nannies	32500	25000	45000	true
+749	5056	Geotechnical	85000	55000	125000	true
+5057	5056	Building services	75000	37500	125500	true
+5058	5056	Civil & structural	85000	50000	135000	true
+5059	5056	Drafting	75000	44750	95000	true
+5060	5056	Electrical	75000	47500	120000	true
+5061	5056	Environmental	85000	59000	125000	true
+6896	5056	Industrial	55000	37500	95000	true
+5062	5056	Maintenance	65000	41625	110000	true
+5063	5056	Management	85000	50000	175000	true
+5064	5056	Mechanical	63750	37500	105000	true
+5065	5056	Project management	95000	55000	167000	true
+5066	5056	Water & waste	75000	46125	125000	true
+5070	5068	Freight forwarders	50000	32500	74250	true
+5075	5068	Import & export	50000	35000	74500	true
+5072	5068	Management	65000	42500	107000	true
+5071	5068	Operations	50000	35000	85000	true
+5073	5068	Supply chain & planning	65000	40000	121250	true
+5074	5068	Warehouse & distribution	37500	32500	65000	true
+5069	5068	Drivers & couriers	47500	35000	70000	false
+6908	5069	Couriers	55000	28500	75000	true
+6909	5069	Truck HT	45000	32500	67500	true
+5079	5077	Central government	65000	45000	135000	true
+5078	5077	Local & regional council	65000	40000	105000	true
+5083	5082	Administration	47500	32500	75000	true
+5084	5082	Caregiving	37500	32125	55000	true
+5085	5082	Community & social services	47500	35000	75000	true
+5086	5082	Dentistry	47500	35000	80500	true
+5088	5082	Management	85000	55000	136500	true
+5090	5082	Nursing & midwifery	65000	40250	95000	false
+5091	5082	Occupational therapy	65000	36750	85000	true
+5092	5082	Pharmacy	47500	37500	85000	true
+5094	5082	Psychology & counselling	55000	40125	85000	true
+751	5082	Fitness & wellbeing	45000	35000	85750	true
+752	5082	Veterinary	47500	35000	101000	true
+5093	5082	Physiotherapy	65000	45000	85000	true
+900	5090	Community & primary care	65000	45000	93750	true
+907	5090	Mental health	65000	45000	85000	true
+927	5090	Theatre & recovery	70000	43625	82750	true
+755	5097	Tourism & tour guides	35000	25000	60000	true
+5098	5097	Bar staff & baristas	32500	25000	45000	true
+5100	5097	Chefs	39000	27500	55000	true
+6897	5097	Housekeeping	33500	25000	47500	true
+5102	5097	Kitchen staff	32500	25000	42500	true
+5103	5097	Management	42500	30000	75000	true
+5101	5097	Reception & front desk	35000	25000	45000	true
+5104	5097	Travel consultants	45000	35000	55000	true
+5099	5097	Waiting staff	35000	25000	45000	true
+5107	5106	HR	65000	42500	115000	true
+5110	5106	Recruitment	65000	40000	120000	true
+5113	5112	Architects	135000	75000	225000	true
+5114	5112	Business & systems analysts	95000	62750	207500	true
+5115	5112	Database	95000	45125	180000	true
+6898	5112	Functional consultants	115000	55500	225000	true
+5116	5112	Service desk	55000	37500	95500	true
+5117	5112	Management	125000	65000	225000	true
+5118	5112	Networking & storage	90000	45000	195500	true
+5119	5112	Programming & development	95000	55000	192500	true
+5120	5112	Project management	115000	55000	225000	true
+5121	5112	Sales & pre-sales	105000	42625	184000	true
+6899	5112	Security	105000	52000	184750	true
+5122	5112	Telecommunications	55000	37500	115500	true
+5123	5112	Testing	95000	53000	186000	true
+5124	5112	Web design	85000	42500	170000	true
+759	5112	Data warehousing & BI	115000	70000	207500	true
+761	5112	Systems engineers	85000	55000	173250	true
+5129	5126	In-house counsel	95000	40000	165000	true
+5130	5126	Private practice	75000	40000	125000	true
+5127	5126	Secretarial	47500	32500	65000	true
+5133	5132	Fitters & machining	55000	32500	85000	true
+5135	5132	Machine operation	36500	27500	55000	true
+5136	5132	Management	75000	45000	130000	true
+5138	5132	Process & assembly	35000	25000	57000	true
+5139	5132	Purchasing & inventory	55000	36500	109000	true
+5140	5132	Quality assurance	55000	30000	95000	true
+5141	5132	Storepersons & warehousing	36000	27500	67500	true
+6901	5132	Supervisors & forepersons	55000	35000	75000	true
+5145	5143	Brand & product management	75000	40000	115000	true
+5150	5143	Communications & PR	72500	45000	125000	true
+5146	5143	Design	55000	37500	105000	true
+5153	5143	Journalism	55000	40000	87000	true
+5151	5143	Management	85000	50000	135000	true
+5148	5143	Market research & analysis	75000	45000	125000	true
+5149	5143	Marketing assistants & coordinators	47500	37500	65000	true
+764	5143	Digital marketing	65000	40000	105000	true
+5156	5155	Administration	40000	30000	55000	true
+5157	5155	Data entry	37500	28500	47000	true
+5159	5155	EA, PA & secretarial	47500	36500	67500	true
+5158	5155	Office management	47000	35000	75000	true
+5160	5155	Reception	36500	27500	47000	true
+5164	5163	Account management	65000	40000	105000	true
+5165	5163	Business development manager	75000	45000	125000	true
+5166	5163	Sales managers	85000	45000	185000	true
+5167	5163	Sales reps	55000	35000	100000	true
+5168	5163	Sales support	45000	32500	65000	true
+5169	5163	Telesales	40000	30000	85000	true
+5177	5171	Assistant store managers	35000	30000	47500	true
+5174	5171	Management	45000	32500	105000	true
+5173	5171	Merchandising	37500	28500	115000	true
+5175	5171	Retail assistants	32500	25000	45000	true
+5176	5171	Store managers	45000	30000	60000	true
+765	5171	Area managers	70000	45000	85000	true
+766	5171	Buying	80000	42500	115000	true
+768	5171	Department managers	45000	35000	55000	true
+6902	5180	Beautician	40000	32500	60000	true
+6903	5180	Boat building	55000	36500	70000	true
+5184	5180	Boilermakers & welders	53750	37500	70000	true
+5186	5180	Building & carpentry	55000	37500	80000	true
+5185	5180	Butchers & bakers	40000	32500	55000	true
+5187	5180	Cleaning	37500	30000	60000	true
+5188	5180	Electrical	60000	40000	85000	true
+6904	5180	Flooring	50000	37500	65000	true
+5189	5180	Gardening & landscaping	45000	35000	65000	true
+6905	5180	Glaziers	50000	35250	65000	true
+5190	5180	Hairdressing	45000	30000	65000	true
+5191	5180	Handy-persons	42500	32500	65000	true
+5192	5180	Labourers	37500	25000	55000	true
+5193	5180	Painting	50000	37500	70000	true
+5194	5180	Plumbing	60000	37500	75000	true
+5195	5180	Printing	48750	35000	92750	true
+6906	5180	Roofing	55000	32500	75000	true
+5196	5180	Security	40000	32500	70000	true
+6907	5180	Sign writers	50000	32500	70000	true
+5197	5180	Technicians	55000	36125	75000	true
+5182	5180	Air con. & refrigeration	60000	35500	85000	true
+5037	5309	Interior design	62500	37500	105000	true
+5034	5309	Architects	85000	45000	125000	true
+5035	5309	Drafting	65000	45000	100000	true
