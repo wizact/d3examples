@@ -34,7 +34,7 @@
 }
 
 .chart .axis text {
-    fill: black;
+  fill: black;
 }
 
 .d3-tip {
@@ -59,6 +59,14 @@
   text-align: center;
 }
 
+.hand-cursor {
+  cursor: pointer;
+}
+
+.back-button {
+  fill: steelblue!important;
+}
+
 /* Style northward tooltips differently */
 .d3-tip.n:after {
   margin: -1px 0 0 0;
@@ -69,8 +77,7 @@
 </style>
 </head>
 <body>
-<button onclick="goBack()">Back</button>
-<input type="text" id="parent" value="5000"/>
+<input type="text" id="parent" value="5000" style="display:none;" />
 <br>
 
 <svg class="chart">
@@ -83,9 +90,20 @@
       draw(+parent);
     }
 
+    var getPreviousParent = function(data, parent) {
+      var previousParent = data.filter(function(d) { return d.CategoryId === parent; });
+      if (previousParent[0]) {
+        return previousParent[0];
+      } else {
+        return Object.create({}, { Parent: { value: 5000 }, Category: { value: 'All Categories' }  });
+      }
+    }
+
     function draw(parent) {
-        d3.tsv('salary_guide_data.tsv', type, function(error, data) {
-          data = data.filter(function(d) { return d.Parent === parent; });
+        d3.tsv('salary_guide_data.tsv', type, function(error, sourceData) {
+          var data = sourceData.filter(function(d) { return d.Parent === parent; });
+          var previousParent = getPreviousParent(sourceData, parent);
+          document.getElementById("parent").value = previousParent.Parent;
           var margin = {top: 60, right: 50, bottom: 125, left: 40},
           width = 936 - margin.left - margin.right,
           height = 550 - margin.top - margin.bottom;
@@ -140,9 +158,18 @@
               .style("fill", "black")
               .style("font-size", "16px")
               .style("text-decoration", "none")
-              .text("NZ Salary Guide 2017 Q1");
+              .text("NZ Salary Guide (Oct 2016 - Mar 2017) - " + previousParent.Category);
 
-
+          chart.append("text")
+              .attr("x", (width / 2))
+              .attr("y", 0 - (margin.top / 2) + 20)
+              .attr("text-anchor", "middle")
+              .attr("onclick", "goBack()")
+              .attr('class', 'hand-cursor back-button')
+              .style("font-size", "16px")
+              .style("text-decoration", "none")
+              .style("display", parent === 5000 ? 'none' : 'block')
+              .text("(Go Up)");
 
           chart.append("g")
               .attr("class", "x axis")
@@ -170,7 +197,7 @@
               .append("g");
 
           g.append("rect")
-              .attr("class", "bar")
+              .attr("class", "bar hand-cursor")
               .attr("x", categryMap)
               .attr("y", maxMap)
               .attr("height", barHeight)
@@ -183,7 +210,7 @@
               .attr("width", 26);
 
           g.append("rect")
-              .attr("class", "medianBar")
+              .attr("class", "medianBar hand-cursor")
               .attr("x", categryMap)
               .attr("y", medianMap)
               .attr("height", medianBarHeight)
