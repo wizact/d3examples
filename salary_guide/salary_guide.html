@@ -197,20 +197,21 @@
               .append("g");
 
           g.append("rect")
-              .attr("class", "bar hand-cursor")
+              .attr("class", function(d) { return d.Leaf ? 'bar' : 'bar hand-cursor'; })
               .attr("x", categryMap)
               .attr("y", maxMap)
+              .attr("height", 0)
               .attr("height", barHeight)
               .on('click', function(d) { return drillDown(d); })
+              .attr("width", 0)
               .transition()
-              .duration(200)
               .delay(function (d, i) {
-                return i * 50;
+                return i * 25;
               })
-              .attr("width", 26);
+              .attr('width', 26);
 
           g.append("rect")
-              .attr("class", "medianBar hand-cursor")
+              .attr("class", function(d) { return d.Leaf ? 'medianBar' : 'medianBar hand-cursor'; })
               .attr("x", categryMap)
               .attr("y", medianMap)
               .attr("height", medianBarHeight)
@@ -218,9 +219,14 @@
               .transition()
               .duration(200)
               .delay(function (d, i) {
-                return i * 50;
+                return i * 25;
               })
-              .attr("width", 26);
+              .attr("width", 0)
+              .transition()
+              .delay(function (d, i) {
+                return i * 25;
+              })
+              .attr('width', 26);
 
           g.on('mouseover', tip.show);
           g.on('mouseout', tip.hide);
