@@ -9,5 +9,8 @@
   "license": "BSD",
   "devDependencies": {
     "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "d3-tip": "^0.7.1"
   }
 }

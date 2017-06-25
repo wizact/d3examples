@@ -17,19 +17,16 @@ function draw(parent) {
     var data = sourceData.filter(function(d) { return d.Parent === parent; });
     var previousParent = getPreviousParent(sourceData, parent);
     document.getElementById("parent").value = previousParent.Parent;
-    var margin = {top: 60, right: 50, bottom: 125, left: 40},
+    var margin = {top: 60, right: 50, bottom: 125, left: 50},
     width = 936 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
-    var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
-    var y = d3.scale.linear().range([height, 0]);
+    var x = d3.scaleBand().rangeRound([0, width]).padding(0.1);
+    var y = d3.scaleLinear().range([height, 0]);
 
-    var xAxis = d3.svg.axis()
-                        .scale(x)
-                        .orient('bottom');
-    var yAxis = d3.svg.axis()
-                        .scale(y)
-                        .orient('left');
+    var xAxis = d3.axisBottom(x);
+    var yAxis = d3.axisLeft(y);
+
     var tip = d3.tip()
       .attr('class', 'd3-tip')
       .offset([-10, 0])
@@ -39,7 +36,7 @@ function draw(parent) {
 
     var xDomain = function(data) { return data.map(function(d) { return d.Category; }); },
         yDomain = function(data) { return [0, d3.max(data, function(d) { return d.Max; })]; },
-        categryMap = function(data) { return x(data.Category) + (x.rangeBand() - 26)/2; },
+        categryMap = function(data) { return x(data.Category) + (x.bandwidth() - 26)/2; },
         maxMap = function(data) { return y(data.Max); },
         medianMap = function(data) { return y(data.Median); },
         barHeight = function(data) { return (height - y(data.Max)) - (height - y(data.Min)); },
@@ -94,10 +91,12 @@ function draw(parent) {
           .attr("x", 7)
           .attr("transform" , "rotate(45)");
 
-      chart.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-          .append("text")
+      var yAxisG =chart.append("g")
+              .attr("class", "y axis")
+              .call(yAxis);
+          yAxisG.selectAll("text")
+            .attr("dx", "-1.71em");
+          yAxisG.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 6)
             .attr("dy", ".71em")
