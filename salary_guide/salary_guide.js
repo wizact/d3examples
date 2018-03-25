@@ -53,9 +53,12 @@ function draw(parent) {
 
     d3.select('.chart').select('g').remove();
 
+    var chartWidth = width + margin.left + margin.right;
+    var chartHeight = height + margin.top + margin.bottom;
+
       var chart = d3.select('.chart')
-          .attr('width', width + margin.left + margin.right)
-          .attr('height', height + margin.top + margin.bottom)
+          .attr('viewBox', '0 0 ' + chartWidth + ' ' + chartHeight)
+          .attr('preserveAspectRatio', 'xMidYMid meet')
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
