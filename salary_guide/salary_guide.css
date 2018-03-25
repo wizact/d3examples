@@ -1,3 +1,10 @@
+.salary-guide__container {
+  width: 100%;
+  max-width: 950px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .chart rect.bar {
   fill: steelblue;
 }
