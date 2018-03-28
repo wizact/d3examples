@@ -12,9 +12,9 @@
 <div
   class="salary-guide__container">
     <button
+        id="goParentId"
         style="font-size: 16px"
-        class="hand-cursor back-button"
-        onclick="salaryGuide.goBack(this)">
+        class="hand-cursor back-button">
         Go Up
     </button>
     <svg class="chart">
@@ -24,7 +24,10 @@
 <script src="../node_modules/d3-tip/index.js"></script>
 <script src="salary_guide.js"></script>
 <script type="text/javascript">
-    var salaryGuide = new SalaryGuide('salary_guide_data_oct_2016_mar_2017.tsv', 'NZ Salary Guide (Oct 2016 - Mar 2017)');
+    var salaryGuide = new SalaryGuide(
+        'salary_guide_data_oct_2016_mar_2017.tsv',
+        'NZ Salary Guide (Oct 2016 - Mar 2017)',
+        'goParentId');
 </script>
 </body>
 </html>

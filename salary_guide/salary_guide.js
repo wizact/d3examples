@@ -1,15 +1,20 @@
 var SalaryGuide = (function() {
-  function SalaryGuide(fileName, title) {
+  function SalaryGuide(fileName, title, goBackElementId) {
     this.fileName = fileName;
     this.title = title;
+    this.goBackElementId = goBackElementId;
     this.draw(5000);
+
+    document.getElementById(goBackElementId).addEventListener('click', function(e) {
+          this.goBack();
+      }.bind(this), false);
   };
 
   SalaryGuide.prototype.parent = function() {
     return document.getElementById("parent").value;
   }
 
-  SalaryGuide.prototype.goBack = function(target) {
+  SalaryGuide.prototype.goBack = function() {
     var parent = document.getElementById("parent").value;
     this.draw(+parent);
   };
@@ -23,12 +28,23 @@ var SalaryGuide = (function() {
     }
   };
 
+  SalaryGuide.prototype.showHideBackButton = function(categoryId) {
+    if (categoryId === undefined || categoryId === 5000) {
+      document.getElementById(this.goBackElementId).style.display = 'none';
+    } else {
+      document.getElementById(this.goBackElementId).style.display = 'block';
+    } 
+  }
+
   SalaryGuide.prototype.draw = function(parent) {
     var that = this;
     d3.tsv(this.fileName, this.type, function(error, sourceData) {
       var data = sourceData.filter(function(d) { return d.Parent === parent; });
       var previousParent = that.getPreviousParent(sourceData, parent);
       document.getElementById("parent").value = previousParent.Parent;
+
+      that.showHideBackButton(previousParent.CategoryId);
+
       var margin = {top: 60, right: 50, bottom: 125, left: 50},
       width = 936 - margin.left - margin.right,
       height = 550 - margin.top - margin.bottom;
