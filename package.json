@@ -3,15 +3,20 @@
   "version": "0.0.0",
   "description": "Jobs Data Visualization",
   "scripts": {
-    "dev": "lite-server"
+    "dev": "lite-server",
+    "babel": "babel --presets es2015 main.js -o build/main.bundle.js"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "lite-server": "^2.3.0",
     "webpack": "^4.4.1"
   },
   "dependencies": {
-    "d3-tip": "^0.7.1"
+    "d3-tip": "^0.7.1",
+    "d3v4": "^4.2.2"
   }
 }
